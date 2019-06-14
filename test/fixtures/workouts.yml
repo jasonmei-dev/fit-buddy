@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duration_mins: 1
+  user_id: 1
+  share_status: false
+
+two:
+  name: MyString
+  duration_mins: 1
+  user_id: 1
+  share_status: false
