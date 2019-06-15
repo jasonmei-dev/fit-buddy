@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def index
+    redirect_if_not_logged_in
     @users = User.all
   end
 
   def new #signup
+    redirect_if_logged_in
     @user = User.new
   end
 
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_if_not_logged_in
     @user = User.find(params[:id])
   end
 
