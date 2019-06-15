@@ -1,7 +1,7 @@
 <%= form_for(:user, url: login_path) do |f| %>
-  <%= f.label :name %>
-  <%= f.collection_select(:name, User.all, :username, :username) %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
   <%= f.label :password %>
-  <%= f.password_field :password, id: 'password' %>
+  <%= f.password_field :password %>
   <%= f.submit 'Log In'%>
 <% end %>
