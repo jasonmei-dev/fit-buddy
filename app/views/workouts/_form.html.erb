@@ -1,0 +1,9 @@
+<%= form_for workout do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :duration_mins, "Duration(mins)" %><br>
+  <%= f.number_field :duration_mins %><br>
+  <%= f.label :share_status, "Share Workout" %>
+  <%= f.check_box :share_status %><br>
+  <%= f.submit %>
+<% end %>
