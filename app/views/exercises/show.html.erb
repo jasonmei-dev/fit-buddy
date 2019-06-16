@@ -1,0 +1,7 @@
+<h1><%= @exercise.name %></h1>
+<h3>Category: <%= @exercise.category %></h3>
+<h3>Description:</h3>
+<p><%= @exercise.description %></p>
+
+<%= link_to "Edit Exercise", edit_exercise_path(@exercise) %>
+<%= link_to "Exercise Index", exercises_path %>
