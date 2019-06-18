@@ -10,32 +10,21 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to "Home", root_path, class: "navbar-brand" %>
-          
-          <% if !logged_in? %>
-            <%= link_to "Sign Up", new_user_path, class: "navbar-brand" %>
-            <%= link_to "Log In", login_path, class: "navbar-brand" %>
-          <% else %>
-            <%= link_to "Log Workout", new_workout_path, class: "navbar-brand" %>
-            <%= link_to "#{current_user.username}'s Profile", user_path(current_user), class: "navbar-brand" %>
-            <%= link_to "Log Out", logout_path, method: :post, class: "navbar-brand" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= link_to "Home", root_path, class: "navbar-brand" %>
+
+    <% if !logged_in? %>
+      <%= link_to "Sign Up", new_user_path, class: "navbar-brand" %>
+      <%= link_to "Log In", login_path, class: "navbar-brand" %>
+    <% else %>
+      <%= link_to "Log Workout", new_user_workout_path(current_user), class: "navbar-brand" %>
+      <%= link_to "#{current_user.username}'s Profile", user_path(current_user), class: "navbar-brand" %>
+      <%= link_to "Log Out", logout_path, method: :post, class: "navbar-brand" %>
+    <% end %>
 
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

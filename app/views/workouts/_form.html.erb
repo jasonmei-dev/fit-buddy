@@ -1,4 +1,5 @@
 <%= form_for workout do |f| %>
+  <%= f.hidden_field :user_id %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
   <%= f.label :duration_mins, "Duration(mins)" %><br>
