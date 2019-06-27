@@ -1,2 +1,35 @@
 <h1><%= @workout.name %></h1>
 <h3>Duration: <%= @workout.duration_mins %> minutes</h3>
+<% if @workout.user == current_user %>
+  <%= link_to "Edit Workout", edit_user_workout_path(current_user) %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Exercise</th>
+      <th>Sets</th>
+      <th>Reps</th>
+      <th>Weight(lbs)</th>
+      <th>Rating</th>
+      <th>Notes</th>
+      <% if @workout.user == current_user %>
+        <th><%= link_to "Add Exercise Entry", new_workout_workout_exercise_path(@workout) %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workout.workout_exercises.each do |workout_exercise| %>
+    <tr>
+      <td><%= workout_exercise.exercise.name %></td>
+      <td><%= workout_exercise.sets %></td>
+      <td><%= workout_exercise.reps %></td>
+      <td><%= workout_exercise.weight_lbs %></td>
+      <td><%= workout_exercise.exercise_rating %></td>
+      <td><%= workout_exercise.notes %></td>
+      <% if @workout.user == current_user %>
+        <td><%= link_to "Edit Entry", edit_workout_workout_exercise_path(@workout) %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

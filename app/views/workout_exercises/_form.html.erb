@@ -1,0 +1,28 @@
+<%= form_for workout_exercise do |f| %>
+  <%= f.hidden_field :workout_id %>
+  <%= f.label :exercise_id, "Select Exercise:" %>
+  <%= f.collection_select(:exercise_id, @exercises, :id, :name, include_blank: "New Exercise") %><br>
+
+  <h5>- OR - </h5>
+  <p>Create New Exercise</p>
+  <%= f.fields_for :exercise, workout_exercise.exercise do |exercise_fields| %>
+    <%= exercise_fields.label :name %><br>
+    <%= exercise_fields.text_field :name %><br>
+    <%= exercise_fields.label :category %><br>
+    <%= exercise_fields.text_field :category %><br>
+    <%= exercise_fields.label :description %><br>
+    <%= exercise_fields.text_area :description %><br>
+  <% end %>
+
+  <%= f.label :weight_lbs, "Weight(lbs):" %><br>
+  <%= f.number_field :weight_lbs %><br>
+  <%= f.label :sets, "Sets:" %><br>
+  <%= f.number_field :sets %><br>
+  <%= f.label :reps, "Reps:" %><br>
+  <%= f.number_field :reps %><br>
+  <%= f.label :exercise_rating, "Rating (1 - 5):" %><br>
+  <%= f.number_field :exercise_rating %><br>
+  <%= f.label :notes, "Notes(Optional):" %><br>
+  <%= f.text_area :notes %><br>
+  <%= f.submit "Submit" %>
+<% end %>
