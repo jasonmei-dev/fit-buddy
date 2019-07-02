@@ -2,8 +2,7 @@
 
 <% if @user.errors.any? %>
   <h3>
-    <%= pluralize(@user.errors.count, "error") %>
-    prohibited the creation of new User:
+    <%= pluralize(@user.errors.count, "error") %> found:
   </h3>
 
   <ul>

@@ -1,6 +1,6 @@
 class Exercise < ApplicationRecord
-  has_many :workout_exercises
-  has_many :workouts, through: :workout_exercises
+  has_many :exercise_entries
+  has_many :workouts, through: :exercise_entries
   has_many :users, through: :workouts
 
   validates :name, presence: true, uniqueness: true

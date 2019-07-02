@@ -2,6 +2,10 @@
 <h3>Duration: <%= @workout.duration_mins %> minutes</h3>
 <% if @workout.user == current_user %>
   <%= link_to "Edit Workout", edit_user_workout_path(current_user) %>
+
+  <%= form_tag(user_workout_path(@workout.user, @workout), method: :delete) do %>
+  <button type="submit" class="destroy">Delete Workout</button>
+  <% end %>
 <% end %>
 <table>
   <thead>
@@ -13,21 +17,26 @@
       <th>Rating</th>
       <th>Notes</th>
       <% if @workout.user == current_user %>
-        <th><%= link_to "Add Exercise Entry", new_workout_workout_exercise_path(@workout) %></th>
+        <th><%= link_to "Add Exercise Entry", new_workout_exercise_entry_path(@workout) %></th>
       <% end %>
     </tr>
   </thead>
   <tbody>
-    <% @workout.workout_exercises.each do |workout_exercise| %>
+    <% @workout.exercise_entries.each do |exercise_entry| %>
     <tr>
-      <td><%= workout_exercise.exercise.name %></td>
-      <td><%= workout_exercise.sets %></td>
-      <td><%= workout_exercise.reps %></td>
-      <td><%= workout_exercise.weight_lbs %></td>
-      <td><%= workout_exercise.exercise_rating %></td>
-      <td><%= workout_exercise.notes %></td>
+      <td><%= exercise_entry.exercise.name %></td>
+      <td><%= exercise_entry.sets %></td>
+      <td><%= exercise_entry.reps %></td>
+      <td><%= exercise_entry.weight_lbs %></td>
+      <td><%= exercise_entry.exercise_rating %></td>
+      <td><%= exercise_entry.notes %></td>
       <% if @workout.user == current_user %>
-        <td><%= link_to "Edit Entry", edit_workout_workout_exercise_path(@workout) %></td>
+        <td>
+          <%= link_to "Edit Entry", edit_workout_exercise_entry_path(@workout) %>
+          <%= form_tag(workout_exercise_entry_path(@workout.user, @workout), method: :delete) do %>
+          <button type="submit" class="destroy">Delete Entry</button>
+        </td>
+        <% end %>
       <% end %>
     </tr>
     <% end %>

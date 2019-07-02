@@ -12,6 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2019_06_14_021638) do
 
+  create_table "exercise_entries", force: :cascade do |t|
+    t.integer "workout_id"
+    t.integer "exercise_id"
+    t.integer "weight_lbs"
+    t.integer "sets"
+    t.integer "reps"
+    t.string "notes"
+    t.integer "exercise_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -24,18 +36,6 @@ ActiveRecord::Schema.define(version: 2019_06_14_021638) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "workout_exercises", force: :cascade do |t|
-    t.integer "workout_id"
-    t.integer "exercise_id"
-    t.integer "weight_lbs"
-    t.integer "sets"
-    t.integer "reps"
-    t.string "notes"
-    t.integer "exercise_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

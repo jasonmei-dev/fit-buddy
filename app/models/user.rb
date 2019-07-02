@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_many :workouts
   has_many :exercises, through: :workouts
-  has_many :workout_exercises, through: :workouts
+  has_many :exercise_entries, through: :workouts
 
   validates :username, presence: true
   validates :username, uniqueness: true

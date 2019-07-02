@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController
   def new
+    # @user = current_user
     @workout = Workout.new
   end
 
@@ -10,6 +11,8 @@ class WorkoutsController < ApplicationController
       redirect_to user_workout_path(@user, @workout)
     else
       redirect_to new_user_workout_path(@user)
+      # render :template => 'workouts/new'
+      # render :new
     end
   end
 
@@ -25,6 +28,13 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @workout.update(workout_params)
     redirect_to user_workout_path(id: @workout.id, user_id: @workout.user_id)
+  end
+
+  def destroy
+    @user = current_user
+    @workout = Workout.find(params[:id])
+    @workout.destroy
+    redirect_to user_path(@user)
   end
 
   private

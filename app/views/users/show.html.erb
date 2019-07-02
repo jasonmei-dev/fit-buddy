@@ -1,5 +1,5 @@
 <h1>Hi, <%= @user.username %>!</h1>
 <h2>Workouts</h2>
 <% @user.workouts.order(created_at: :desc).each do |workout| %>
-  <%= link_to "#{workout.name} - #{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")}", user_workout_path(user_id: workout.user_id, id: workout.id) %><br>
+  <%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} - #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %><br>
 <% end %>

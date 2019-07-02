@@ -1,7 +1,7 @@
 class Workout < ApplicationRecord
   belongs_to :user
-  has_many :workout_exercises
-  has_many :exercises, through: :workout_exercises
+  has_many :exercise_entries
+  has_many :exercises, through: :exercise_entries
 
   validates :name, presence: true
   validates :duration_mins, presence: true

@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  resources :workout_exercises
+  resources :exercise_entries
   resources :exercises
   resources :workouts
   resources :users
 
   resources :users, only: [:show] do
-    resources :workouts, only: [:show, :new, :edit]
+    resources :workouts, only: [:show, :new, :edit, :destroy]
   end
 
   resources :workouts, only: [:show] do
-    resources :workout_exercises, only: [:new, :edit, :destroy]
+    resources :exercise_entries, only: [:new, :edit, :destroy]
   end
 
   get '/login' => 'sessions#new'
