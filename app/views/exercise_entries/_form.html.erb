@@ -5,13 +5,13 @@
 
   <h5>- OR - </h5>
   <p>Create New Exercise</p>
-  <%= f.fields_for :exercise, exercise_entry.exercise do |exercise_fields| %>
-    <%= exercise_fields.label :name %><br>
-    <%= exercise_fields.text_field :name %><br>
-    <%= exercise_fields.label :category %><br>
-    <%= exercise_fields.select :category, ['Chest', 'Shoulders', 'Arms', 'Back', 'Legs', 'Abs'] %><br>
-    <%= exercise_fields.label :description %><br>
-    <%= exercise_fields.text_area :description %><br>
+  <%= f.fields_for :exercise, exercise_entry.exercise do |exercise_field| %>
+    <%= exercise_field.label :name %><br>
+    <%= exercise_field.text_field :name %><br>
+    <%= exercise_field.label :category %><br>
+    <%= exercise_field.select :category, ['Chest', 'Shoulders', 'Arms', 'Back', 'Legs', 'Abs'] %><br>
+    <%= exercise_field.label :description %><br>
+    <%= exercise_field.text_area :description %><br>
   <% end %>
 
   <%= f.label :weight_lbs, "Weight(lbs):" %><br>

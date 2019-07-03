@@ -9,9 +9,7 @@ class ExerciseEntry < ApplicationRecord
   validates :reps, presence: true
   validates :exercise_rating, inclusion: {in: [1, 2, 3, 4, 5]}
 
-  # def exercise_attributes=(exercise_attributes)
-  #   exercise_attributes.values.each do |exercise_attribute|
-  #     self.exercise = Exercise.find_or_create_by(exercise_attribute)
-  #   end
-  # end
+  def exercise_attributes=(exercise_attributes)
+    self.exercise = Exercise.find_or_create_by(exercise_attributes) if self.exercise_id.nil?
+  end
 end

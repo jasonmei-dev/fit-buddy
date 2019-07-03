@@ -2,21 +2,20 @@ class ExerciseEntriesController < ApplicationController
   def new
     @exercise_entry = ExerciseEntry.new(workout_id: params[:workout_id])
     @exercises = Exercise.all
-    @exercise = Exercise.new
+    @exercise = @exercise_entry.build_exercise
   end
 
   def create
     # raise params.inspect
-    if params[:exercise_entry][:exercise_id].empty?
-      @exercise = Exercise.create(exercise_params)
-      params[:exercise_entry][:exercise_id] = @exercise.id
-    end
+    # if params[:exercise_entry][:exercise_id].empty?
+    #   @exercise = Exercise.create(exercise_params)
+    #   params[:exercise_entry][:exercise_id] = @exercise.id
+    # end
 
     @exercise_entry = ExerciseEntry.new(exercise_entry_params)
     if @exercise_entry.save
       redirect_to user_workout_path(id: @exercise_entry.workout_id, user_id: @exercise_entry.workout.user_id)
     else
-      raise params.inspect
       redirect_to new_exercise_entry_path
     end
   end
@@ -41,10 +40,10 @@ class ExerciseEntriesController < ApplicationController
   private
 
   def exercise_entry_params
-    params.require(:exercise_entry).permit(:exercise_id, :workout_id, :weight_lbs, :sets, :reps, :notes, :exercise_rating)
+    params.require(:exercise_entry).permit(:exercise_id, :workout_id, :weight_lbs, :sets, :reps, :notes, :exercise_rating, exercise_attributes: [:name, :description, :category])
   end
 
-  def exercise_params
-    params[:exercise_entry].require(:exercise).permit(:name, :description, :category)
-  end
+  # def exercise_params
+  #   params[:exercise_entry].require(:exercise).permit(:name, :description, :category)
+  # end
 end
