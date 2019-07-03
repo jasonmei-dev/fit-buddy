@@ -6,8 +6,13 @@ class SessionsController < ApplicationController
   def create #login
     if auth
       @user = User.find_by(email: auth[:info][:email])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      if @user
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        flash[:error] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
+        render :new
+      end
     else
       @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
