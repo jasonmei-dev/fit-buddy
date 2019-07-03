@@ -32,8 +32,8 @@
       <td><%= exercise_entry.notes %></td>
       <% if @workout.user == current_user %>
         <td>
-          <%= link_to "Edit Entry", edit_workout_exercise_entry_path(@workout) %>
-          <%= form_tag(workout_exercise_entry_path(@workout.user, @workout), method: :delete) do %>
+          <%= link_to "Edit Entry", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id) %>
+          <%= form_tag(workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete) do %>
           <button type="submit" class="destroy">Delete Entry</button>
         </td>
         <% end %>

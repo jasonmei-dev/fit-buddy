@@ -11,8 +11,8 @@ class ExerciseEntriesController < ApplicationController
       @exercise = Exercise.create(exercise_params)
       params[:exercise_entry][:exercise_id] = @exercise.id
     end
+
     @exercise_entry = ExerciseEntry.new(exercise_entry_params)
-    
     if @exercise_entry.save
       redirect_to user_workout_path(id: @exercise_entry.workout_id, user_id: @exercise_entry.workout.user_id)
     else
@@ -22,12 +22,12 @@ class ExerciseEntriesController < ApplicationController
   end
 
   def edit
-    @exercise_entry = ExerciseEntry.find_by(workout_id: params[:workout_id])
+    @exercise_entry = ExerciseEntry.find_by(id: params[:id])
     @exercises = Exercise.all
   end
 
   def update
-    @exercise_entry = ExerciseEntry.find_by(workout_id: params[:exercise_entry][:workout_id])
+    @exercise_entry = ExerciseEntry.find_by(id: params[:id])
     @exercise_entry.update(exercise_entry_params)
     redirect_to user_workout_path(id: @exercise_entry.workout_id, user_id: @exercise_entry.workout.user_id)
   end
