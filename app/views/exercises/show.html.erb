@@ -3,5 +3,13 @@
 <h3>Description:</h3>
 <p><%= @exercise.description %></p>
 
+<h5>Average User Rating:
+  <% if @avg_rating %>
+    <%= @avg_rating.round(1) %>
+  <% else %>
+    Not Rated
+  <% end %>
+</h5>
+
 <%= link_to "Edit Exercise", edit_exercise_path(@exercise) %>
 <%= link_to "Exercise Index", exercises_path %>

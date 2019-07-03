@@ -14,6 +14,7 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find(params[:id])
+    @avg_rating = @exercise.exercise_entries.average(:exercise_rating)
   end
 
   def edit
