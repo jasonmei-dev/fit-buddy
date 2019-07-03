@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% flash[:message] if flash[:message] %>
+    <% flash[:error] if flash[:error] %>
+    
     <%= link_to "Home", root_path, class: "navbar-brand" %>
 
     <% if !logged_in? %>
