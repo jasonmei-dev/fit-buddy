@@ -6,7 +6,7 @@
   </h3>
 
   <ul>
-    <%= @user.errors.full_messages.each do |message| %>
+    <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>

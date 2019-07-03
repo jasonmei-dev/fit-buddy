@@ -1,6 +1,5 @@
 class WorkoutsController < ApplicationController
   def new
-    # @user = current_user
     @workout = Workout.new
   end
 
@@ -10,9 +9,7 @@ class WorkoutsController < ApplicationController
     if @workout.save
       redirect_to user_workout_path(@user, @workout)
     else
-      redirect_to new_user_workout_path(@user)
-      # render :template => 'workouts/new'
-      # render :new
+      render :new
     end
   end
 

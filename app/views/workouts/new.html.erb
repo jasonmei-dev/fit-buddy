@@ -1,1 +1,13 @@
-<%= render partial: 'form', locals: { user: @user, workout: @workout } %>
+<% if @workout.errors.any? %>
+  <h3>
+    <%= pluralize(@workout.errors.count, "error") %> found:
+  </h3>
+
+  <ul>
+    <% @workout.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render partial: 'form', locals: { workout: @workout } %>
