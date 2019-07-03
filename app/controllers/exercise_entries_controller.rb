@@ -11,12 +11,13 @@ class ExerciseEntriesController < ApplicationController
     #   @exercise = Exercise.create(exercise_params)
     #   params[:exercise_entry][:exercise_id] = @exercise.id
     # end
-
+    @exercises = Exercise.all
     @exercise_entry = ExerciseEntry.new(exercise_entry_params)
     if @exercise_entry.save
       redirect_to user_workout_path(id: @exercise_entry.workout_id, user_id: @exercise_entry.workout.user_id)
     else
-      redirect_to new_exercise_entry_path
+      # redirect_to new_exercise_entry_path
+      render :new
     end
   end
 

@@ -1,3 +1,13 @@
 <h1>New Exercise Entry</h1>
+<% if @exercise_entry.errors.any? %>
+  <h3>
+    <%= pluralize(@exercise_entry.errors.count, "error") %> found:
+  </h3>
 
+  <ul>
+    <% @exercise_entry.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= render partial: 'form', locals: {exercise_entry: @exercise_entry} %>
