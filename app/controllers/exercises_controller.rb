@@ -1,6 +1,10 @@
 class ExercisesController < ApplicationController
   def index
-    @exercises = Exercise.all
+    if !params[:category].blank?
+      @exercises = Exercise.by_category(params[:category])
+    else
+      @exercises = Exercise.all
+    end
   end
 
   def new
@@ -14,7 +18,6 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find(params[:id])
-    @avg_rating = @exercise.exercise_entries.average(:exercise_rating)
   end
 
   def edit

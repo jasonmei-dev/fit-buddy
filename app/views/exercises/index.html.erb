@@ -1,4 +1,13 @@
 <h1>Exercise Index</h1>
+
+<div>
+  <h3>Filter Exercises:</h3>
+  <%= form_tag('/exercises', method: 'get') do %>
+    <%= select_tag 'category', options_for_select(['Chest', 'Shoulders', 'Arms', 'Back', 'Legs', 'Abs', 'Cardio']), include_blank: "All Categories" %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
 <% @exercises.each do |exercise| %>
   <%= link_to exercise.name, exercise_path(exercise) %><br>
 <% end %>
