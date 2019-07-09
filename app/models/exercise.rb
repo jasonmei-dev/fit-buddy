@@ -14,6 +14,7 @@ class Exercise < ApplicationRecord
   # end
 
   def avg_rating
-    self.exercise_entries.average(:exercise_rating) ? self.exercise_entries.average(:exercise_rating).round(1) : "Not Rated"
+    self.exercise_entries.average(:exercise_rating) ?
+    self.exercise_entries.average(:exercise_rating).round(1) : "Not Rated"
   end
 end

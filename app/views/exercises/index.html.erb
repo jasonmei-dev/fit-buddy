@@ -11,5 +11,5 @@
 <% @exercises.each do |exercise| %>
   <%= link_to exercise.name, exercise_path(exercise) %><br>
 <% end %>
-
+<br>
 <%= link_to "Create New Exercise", new_exercise_path %>
