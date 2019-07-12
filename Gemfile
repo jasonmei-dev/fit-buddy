@@ -11,7 +11,9 @@ gem 'bcrypt'
 gem 'pry'
 
 # bootstrap
-gem "bootstrap-sass", ">= 3.4.1"
+gem "bootstrap", '~> 4.3.1'
+gem 'jquery-rails'
+gem 'sprockets-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

@@ -7,38 +7,39 @@
   <button type="submit" class="destroy">Delete Workout</button>
   <% end %>
 <% end %>
-<table>
-  <thead>
-    <tr>
-      <th>Exercise</th>
-      <th>Sets</th>
-      <th>Reps</th>
-      <th>Weight(lbs)</th>
-      <th>Rating</th>
-      <th>Notes</th>
-      <% if @workout.user == current_user %>
-        <th><%= link_to "Add Exercise Entry", new_workout_exercise_entry_path(@workout) %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @workout.exercise_entries.each do |exercise_entry| %>
-    <tr>
-      <td><%= exercise_entry.exercise.name %></td>
-      <td><%= exercise_entry.sets %></td>
-      <td><%= exercise_entry.reps %></td>
-      <td><%= exercise_entry.weight_lbs %></td>
-      <td><%= exercise_entry.exercise_rating %></td>
-      <td><%= exercise_entry.notes %></td>
-      <% if @workout.user == current_user %>
-        <td>
-          <%= link_to "Edit Entry", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id) %>
-          <%= form_tag(workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete) do %>
-          <button type="submit" class="destroy">Delete Entry</button>
-        </td>
+<div class='container'>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Weight(lbs)</th>
+        <th>Rating</th>
+        <th>Notes</th>
+        <% if @workout.user == current_user %>
+          <th><%= link_to "Add Exercise Entry", new_workout_exercise_entry_path(@workout) %></th>
         <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @workout.exercise_entries.each do |exercise_entry| %>
+      <tr>
+        <td><%= exercise_entry.exercise.name %></td>
+        <td><%= exercise_entry.sets %></td>
+        <td><%= exercise_entry.reps %></td>
+        <td><%= exercise_entry.weight_lbs %></td>
+        <td><%= exercise_entry.exercise_rating %></td>
+        <td><%= exercise_entry.notes %></td>
+        <% if @workout.user == current_user %>
+          <td>
+            <%= form_tag(workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete) do %>
+            <button type="submit" class="destroy">Delete Entry</button>
+          </td>
+          <% end %>
+        <% end %>
+      </tr>
       <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

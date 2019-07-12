@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        flash[:error] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
+        flash[:message] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
         render :new
       end
     else
