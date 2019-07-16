@@ -30,10 +30,6 @@ class ExercisesController < ApplicationController
     redirect_to exercise_path(@exercise)
   end
 
-  # def categories
-  #
-  # end
-
   private
 
   def exercise_params

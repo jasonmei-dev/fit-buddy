@@ -7,6 +7,7 @@ class WorkoutsController < ApplicationController
     @user = current_user
     @workout = @user.workouts.build(workout_params)
     if @workout.save
+      flash[:success] = "Workout successfully created!"
       redirect_to user_workout_path(@user, @workout)
     else
       render :new

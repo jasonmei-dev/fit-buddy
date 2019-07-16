@@ -20,7 +20,7 @@
 </div>
 
 <div class='container'>
-  <table class="table table-striped mt-3">
+  <table class="table mt-3">
     <thead class="thead-dark">
       <tr>
         <th>Exercise</th>
@@ -45,11 +45,11 @@
         <td><%= exercise_entry.notes %></td>
         <% if @workout.user == current_user %>
           <td>
-            <%= link_to "Edit Entry", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), class: "btn btn-secondary" %>
+            <%= link_to "Edit", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), class: "btn btn-secondary" %>
             <%= form_tag(workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete) do %>
-            <button class="btn btn-danger" type="submit">Delete Entry</button>
-          </td>
+            <button class="btn btn-danger" type="submit">Delete</button>
           <% end %>
+          </td>
         <% end %>
       </tr>
       <% end %>
