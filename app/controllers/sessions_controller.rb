@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       if @user
         session[:user_id] = @user.id
         flash[:success] = "Login successful!"
-        redirect_to user_path(@user)
+        redirect_to root_path
       else
         flash[:danger] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
         render :new
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         flash[:success] = "Login successful!"
-        redirect_to user_path(@user)
+        redirect_to root_path
       else
         flash[:danger] = "Credentials were invalid. Please try again or Sign Up."
         render :new

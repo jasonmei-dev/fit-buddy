@@ -1,8 +1,12 @@
 <div class="container text-center">
-    <h1>Fit-Buddy</h1>
-    <% if logged_in? %>
-      <%= link_to "User Index", users_path, class: "btn btn-primary" %>
-      <%= link_to "Exercise Index", exercises_path, class: "btn btn-primary" %>
-      <%= link_to "Your Profile", user_path(current_user), class: "btn btn-primary" %>
-    <% end %>
+  <%= link_to image_tag('fitness_emoji.jpg'), class: "img-fluid" %>
+  <h1>Welcome to Fit-Buddy!</h1>
+</div>
+
+<div class="container text-center">
+  <% if logged_in? %>
+    <%= link_to "User Index", users_path, class: "btn btn-primary" %>
+    <%= link_to "Exercise Index", exercises_path, class: "btn btn-primary" %>
+    <%= link_to "Your Profile", user_path(current_user), class: "btn btn-primary" %>
+  <% end %>
 </div>
