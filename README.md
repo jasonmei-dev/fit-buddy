@@ -1,24 +1,23 @@
-# README
+# Fit-Buddy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple CRUD app made for Flatiron School's Rails Portfolio Project. This app allows a user to log and track their workouts and view other users' workouts. This app was made using Ruby on Rails, ActiveRecord, SQLite3, and Bootstrap CSS framework.
 
-Things you may want to cover:
+## Installation & Usage
 
-* Ruby version
+Fork/Clone this repo, and then navigate to the repo directory in your terminal.
 
-* System dependencies
+Then, run `$ bundle install` or `$ bundle` to install all gem dependencies.
 
-* Configuration
+Run all rake migrations with `$ rake db:migrate`.
 
-* Database creation
+Run `$ rake db:seed` to populate database with seed data.
 
-* Database initialization
+Finally, initiate a server by typing `$ rails s` in your terminal and navigate to the provided URL.
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub at https://github.com/jmei403/fit-buddy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Deployment instructions
+## License
 
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
