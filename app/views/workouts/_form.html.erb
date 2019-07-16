@@ -1,10 +1,35 @@
+<% if @workout.errors.any? %>
+  <h3>
+    <%= pluralize(@workout.errors.count, "error") %> found:
+  </h3>
+
+  <ul>
+    <% @workout.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for workout do |f| %>
-  <%= f.hidden_field :user_id %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
-  <%= f.label :duration_mins, "Duration(mins)" %><br>
-  <%= f.number_field :duration_mins %><br>
-  <%= f.label :share_status, "Share Workout" %>
-  <%= f.check_box :share_status %><br>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.hidden_field :user_id %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :duration_mins, "Duration(mins)" %>
+    <%= f.number_field :duration_mins, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <%= f.check_box :share_status, class: "form-check-input" %>
+      <%= f.label :share_status, "Share Workout", class: "form-check-label" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-success" %>
+  </div>
 <% end %>

@@ -1,23 +1,38 @@
-<h1>Hi, <%= @user.username %>!</h1>
+<div class="container">
+<% if @user == current_user %>
+  <h1>Hi, <%= @user.username %>!</h1>
+<% end %>
+</div>
 
+<div class="container">
 <h4>User Info:</h4>
 <p>
   Username: <%= @user.username %><br>
   Email: <%= @user.email %>
 </p>
+</div>
 
-<br>
-
-<h4>Shared Workouts</h4>
-<% @user.workouts.order(created_at: :desc).each do |workout| %>
-  <%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} -
-   #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) if workout.share_status %><br>
-<% end %>
-
-<% if @user == current_user %>
-<h4>Private Workouts</h4>
-  <% @user.workouts.order(created_at: :desc).each do |workout| %>
-    <%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} -
-     #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) if !workout.share_status %><br>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4>Shared Workouts</h4>
+      <ul class="list-group">
+      <% @user.workouts.where(share_status: true).order(created_at: :desc).each do |workout| %>
+        <li class="list-group-item list-group-item-action"><%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} -
+         #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="col">
+      <% if @user == current_user %>
+      <h4>Private Workouts</h4>
+      <ul class="list-group">
+        <% @user.workouts.where(share_status: false).order(created_at: :desc).each do |workout| %>
+          <li class="list-group-item list-group-item-action"><%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} -
+          #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

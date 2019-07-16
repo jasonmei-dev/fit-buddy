@@ -8,17 +8,20 @@ class SessionsController < ApplicationController
       @user = User.find_by(email: auth[:info][:email])
       if @user
         session[:user_id] = @user.id
+        flash[:success] = "Login successful!"
         redirect_to user_path(@user)
       else
-        flash[:message] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
+        flash[:danger] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
         render :new
       end
     else
       @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
+        flash[:success] = "Login successful!"
         redirect_to user_path(@user)
       else
+        flash[:danger] = "Credentials were invalid. Please try again or Sign Up."
         render :new
       end
     end

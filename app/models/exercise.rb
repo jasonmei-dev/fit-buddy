@@ -9,10 +9,6 @@ class Exercise < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true
 
-  # def self.top_rated
-  #   where("avg_rating >=?", 3.5)
-  # end
-
   def avg_rating
     self.exercise_entries.average(:exercise_rating) ?
     self.exercise_entries.average(:exercise_rating).round(1) : "Not Rated"

@@ -11,7 +11,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :password, length: {minimum: 6}
-
-  extend Slugifiable::ClassMethods
-  include Slugifiable::InstanceMethods
 end

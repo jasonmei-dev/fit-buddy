@@ -1,9 +1,21 @@
-<%= form_for(:user, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-  <%= f.submit 'Log In'%>
-<% end %>
+<div class="container">
+  <h1>Log In</h1>
 
-<%= link_to 'Log In with GitHub', '/auth/github', method: :post %>
+  <%= form_for(:user, url: login_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Log In', class: "btn btn-success" %>
+  </div>
+  <% end %>
+
+  <%= link_to 'Log In with GitHub', '/auth/github', method: :post %>
+</div>

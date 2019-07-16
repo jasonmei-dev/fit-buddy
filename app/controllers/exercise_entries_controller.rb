@@ -9,7 +9,7 @@ class ExerciseEntriesController < ApplicationController
     @exercises = Exercise.all
     @exercise_entry = ExerciseEntry.new(exercise_entry_params)
     if @exercise_entry.save
-      flash[:message] = "Exercise Entry sucessfully added to Workout!"
+      flash[:success] = "Exercise Entry sucessfully added to Workout!"
       redirect_to user_workout_path(id: @exercise_entry.workout_id, user_id: @exercise_entry.workout.user_id)
     else
       render :new

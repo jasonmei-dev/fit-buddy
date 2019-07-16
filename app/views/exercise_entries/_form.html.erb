@@ -1,28 +1,68 @@
+<% if @exercise_entry.errors.any? %>
+  <h3>
+    <%= pluralize(@exercise_entry.errors.count, "error") %> found:
+  </h3>
+
+  <ul>
+    <% @exercise_entry.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for exercise_entry do |f| %>
+<div class="form-group">
+  <div class="form-row">
+    <div class="col">
   <%= f.hidden_field :workout_id %>
   <%= f.label :exercise_id, "Select Exercise:" %>
-  <%= f.collection_select(:exercise_id, @exercises, :id, :name, include_blank: "New Exercise") %><br>
+  <%= f.collection_select(:exercise_id, @exercises, :id, :name, include_blank: "New Exercise") %>
+  </div>
 
-  <h5>- OR - </h5>
+  <div class="col-sm-2 text-center">
+    <h5>-OR-</h5>
+  </div>
+
+  <div class="col">
   <p>Create New Exercise</p>
   <%= f.fields_for :exercise, exercise_entry.exercise do |exercise_field| %>
-    <%= exercise_field.label :name %><br>
-    <%= exercise_field.text_field :name %><br>
-    <%= exercise_field.label :category %><br>
+    <%= exercise_field.label :category, "Select Category: " %>
     <%= exercise_field.select :category, ['Chest', 'Shoulders', 'Arms', 'Back', 'Legs', 'Abs', 'Cardio'] %><br>
-    <%= exercise_field.label :description %><br>
-    <%= exercise_field.text_area :description %><br>
+    <%= exercise_field.label :name %>
+    <%= exercise_field.text_field :name, class: "form-control" %>
+    <%= exercise_field.label :description %>
+    <%= exercise_field.text_area :description, class: "form-control" %>
   <% end %>
+  </div>
+  </div>
+</div>
 
-  <%= f.label :weight_lbs, "Weight(lbs):" %><br>
-  <%= f.number_field :weight_lbs %><br>
-  <%= f.label :sets, "Sets:" %><br>
-  <%= f.number_field :sets %><br>
-  <%= f.label :reps, "Reps:" %><br>
-  <%= f.number_field :reps %><br>
-  <%= f.label :exercise_rating, "Rating (1 - 5):" %><br>
-  <%= f.number_field :exercise_rating %><br>
-  <%= f.label :notes, "Notes(Optional):" %><br>
-  <%= f.text_area :notes %><br>
-  <%= f.submit "Submit" %>
+
+<div class="form-group">
+  <div class="form-row">
+    <div class="col">
+      <%= f.label :weight_lbs, "Weight(lbs):" %>
+      <%= f.number_field :weight_lbs, class: "form-control" %>
+    </div>
+    <div class="col">
+      <%= f.label :sets, "Sets:" %>
+      <%= f.number_field :sets, class: "form-control" %>
+    </div>
+    <div class="col">
+      <%= f.label :reps, "Reps:" %>
+      <%= f.number_field :reps, class: "form-control" %>
+    </div>
+    <div class="col">
+      <%= f.label :exercise_rating, "Rating (1 - 5):" %>
+      <%= f.number_field :exercise_rating, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= f.label :notes, "Notes(Optional):" %>
+  <%= f.text_area :notes, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.submit "Submit", class: "btn btn-success" %>
+</div>
 <% end %>
