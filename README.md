@@ -1,6 +1,6 @@
 # Fit-Buddy
 
-This is a simple CRUD app made for Flatiron School's Rails Portfolio Project. This app allows a user to log and track their workouts and view other users' workouts. This app was made using Ruby on Rails, ActiveRecord, SQLite3, and Bootstrap CSS framework.
+This is a CRUD app made for Flatiron School's Rails Portfolio Project. This app allows a user to log and track their workouts and view other users' workouts. This app was made using Ruby on Rails, ActiveRecord, SQLite3, and Bootstrap CSS framework.
 
 ## Installation & Usage
 
