@@ -4,16 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create #login
-    if auth
-      @user = User.find_by(email: auth[:info][:email])
-      if @user
-        session[:user_id] = @user.id
-        flash[:success] = "Login successful!"
-        redirect_to root_path
-      else
-        flash[:danger] = "No User found with GitHub credentials. Please Sign Up using GitHub email."
-        render :new
-      end
+    if auth_hash = request.env["omniauth.auth"]
+      @user = User.find_or_create_by_omniauth(auth_hash)
+      session[:user_id] = @user.id
+      flash[:success] = "Login successful!"
+      redirect_to root_path
     else
       @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
@@ -30,11 +25,5 @@ class SessionsController < ApplicationController
   def destroy
     session.delete :user_id
     redirect_to root_path
-  end
-
-  private
-
-  def auth
-    request.env["omniauth.auth"]
   end
 end
