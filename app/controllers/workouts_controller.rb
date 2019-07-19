@@ -1,43 +1,43 @@
 class WorkoutsController < ApplicationController
+  before_action :set_workout, only: [:show, :edit, :update, :destroy]
+
   def new
     @workout = Workout.new
   end
 
   def create
-    @user = current_user
-    @workout = @user.workouts.build(workout_params)
+    @workout = current_user.workouts.build(workout_params)
     if @workout.save
       flash[:success] = "Workout successfully created!"
-      redirect_to user_workout_path(@user, @workout)
+      redirect_to user_workout_path(current_user, @workout)
     else
       render :new
     end
   end
 
   def show
-    @workout = Workout.find(params[:id])
   end
 
   def edit
-    @workout = Workout.find(params[:id])
   end
 
   def update
-    @workout = Workout.find(params[:id])
     @workout.update(workout_params)
     redirect_to user_workout_path(id: @workout.id, user_id: @workout.user_id)
   end
 
   def destroy
-    @user = current_user
-    @workout = Workout.find(params[:id])
     @workout.destroy
-    redirect_to user_path(@user)
+    redirect_to user_path(current_user)
   end
 
   private
 
   def workout_params
     params.require(:workout).permit(:name, :duration_mins, :share_status, :user_id)
+  end
+
+  def set_workout
+    @workout = Workout.find(params[:id])
   end
 end
