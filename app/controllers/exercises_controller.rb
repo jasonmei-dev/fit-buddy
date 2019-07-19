@@ -1,4 +1,6 @@
 class ExercisesController < ApplicationController
+  before_action :set_exercise, only: [:show, :edit, :update]
+
   def index
     if !params[:category].blank?
       @exercises = Exercise.by_category(params[:category])
@@ -17,15 +19,12 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exercise = Exercise.find(params[:id])
   end
 
   def edit
-    @exercise = Exercise.find(params[:id])
   end
 
   def update
-    @exercise = Exercise.find(params[:id])
     @exercise.update(exercise_params)
     redirect_to exercise_path(@exercise)
   end
@@ -34,5 +33,9 @@ class ExercisesController < ApplicationController
 
   def exercise_params
     params.require(:exercise).permit(:name, :description, :category)
+  end
+
+  def set_exercise
+    @exercise = Exercise.find(params[:id])
   end
 end
