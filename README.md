@@ -8,11 +8,11 @@ Fork/Clone this repo, and then navigate to the repo directory in your terminal.
 
 Then, run `$ bundle install` or `$ bundle` to install all gem dependencies.
 
-Run all rake migrations with `$ rake db:migrate`.
+Run all rake migrations with `$ rails db:migrate`.
 
-Run `$ rake db:seed` to populate database with seed data.
+Run `$ rails db:seed` to populate database with seed data.
 
-Finally, initiate a server by typing `$ rails s` in your terminal and navigate to the provided URL.
+Finally, initiate a server by typing `$ rails server` in your terminal and navigate to `localhost:3000` in your browser.
 
 ## Contributing
 
