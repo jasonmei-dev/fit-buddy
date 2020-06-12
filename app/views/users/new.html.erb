@@ -31,4 +31,8 @@
   <div class="form-group">
   <%= f.submit "Sign Up", class: "btn btn-success" %>
   </div>
+
+  <%= link_to('Sign in with GitHub!', '/auth/github', method: :post) %><br>
+  <%= link_to('Sign in with Facebook!', '/auth/facebook', method: :post) %><br>
+  <%= link_to('Sign in with Google!', '/auth/google_oauth2', method: :post) %>
 <% end %>
