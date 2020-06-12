@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_134319) do
+ActiveRecord::Schema.define(version: 2020_06_12_172125) do
 
   create_table "exercise_entries", force: :cascade do |t|
     t.integer "workout_id"
@@ -33,13 +33,14 @@ ActiveRecord::Schema.define(version: 2020_06_09_134319) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
   end
 
   create_table "workouts", force: :cascade do |t|
