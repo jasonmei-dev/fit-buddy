@@ -20,10 +20,13 @@ class User < ApplicationRecord
   # end
   
   def self.find_or_create_by_omniauth(auth_hash)
+    byebug
     self.where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create do |user|
       user.provider = auth_hash.provider
       user.uid = auth_hash.uid
       user.email = auth_hash.info.email
+      user.first_name = auth_hash.info.first_name
+      user.last_name = auth_hash.info.last_name
       user.password = SecureRandom.hex
     end
   end
