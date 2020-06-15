@@ -22,7 +22,7 @@
             <li class="nav-item"><%= link_to "Log In", login_path, class: "nav-link" %></li>
           <% else %>
             <li class="nav-item active"><%= link_to "Log Workout", new_user_workout_path(current_user), class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "#{current_user.username}'s Profile", user_path(current_user), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user), class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "Log Out", logout_path, method: :post, class: "nav-link" %></li>
           <% end %>
         </ul>
