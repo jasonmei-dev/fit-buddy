@@ -7,10 +7,12 @@ class User < ApplicationRecord
 
   # validates :username, presence: true
   # validates :username, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
-  validates :password, length: {minimum: 6}
+  validates :password, length: { minimum: 6 }
 
   # def self.find_or_create_by_omniauth(auth_hash)
   #   self.where(email: auth_hash[:info][:email]).first_or_create do |user|
@@ -20,7 +22,6 @@ class User < ApplicationRecord
   # end
   
   def self.find_or_create_by_omniauth(auth_hash)
-    byebug
     self.where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create do |user|
       user.provider = auth_hash.provider
       user.uid = auth_hash.uid
@@ -30,4 +31,9 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex
     end
   end
+
+  def full_name
+    @full_name = "#{self.first_name} #{self.last_name}"
+  end
+
 end
