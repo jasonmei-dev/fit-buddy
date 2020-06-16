@@ -3,8 +3,8 @@
 
   <%= form_for(:user, url: login_path) do |f| %>
     <div class="form-group">
-      <%= f.label :username %>
-      <%= f.text_field :username, class: "form-control" %>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
     </div>
 
     <div class="form-group">
@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-  <%= link_to('Log in with GitHub!', '/auth/github', method: :post) %><br>
-  <%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %><br>
-  <%= link_to('Log in with Google!', '/auth/google_oauth2', method: :post) %>
+  <%= link_to('Log in with GitHub', '/auth/github', method: :post) %><br>
+  <%= link_to('Log in with Facebook', '/auth/facebook', method: :post) %><br>
+  <%= link_to('Log in with Google', '/auth/google_oauth2', method: :post) %>
 </div>
