@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 admin = User.create(first_name: "Jason", last_name: "Mei", email: "admin@email.com", password: "password")
 
-user1 = User.create(first_name: "Luke", last_name: "Skywalker", email: "skywalker@email.com", password: "password")
+user1 = User.create(first_name: "Luke", last_name: "Skywalker", email: "jedi@email.com", password: "password")
 lift_a = Workout.create(name: "Workout 7", duration_mins: 90, user_id: 2, share_status: true)
 user1.workouts.create(name: "Workout 5", duration_mins: 45, share_status: true, created_at: 25.hours.ago)
 user1.workouts.create(name: "Workout 3", duration_mins: 30, share_status: true, created_at: 50.hours.ago)
@@ -18,7 +18,7 @@ user1.workouts.create(name: "Workout 4", duration_mins: 30, share_status: false,
 user1.workouts.create(name: "Workout 2", duration_mins: 15, share_status: false, created_at: 70.hours.ago)
 
 
-user2 = User.create(first_name: "Han", last_name: "Solo", email: "solo@email.com", password: "password")
+user2 = User.create(first_name: "Leia", last_name: "Organa", email: "princess@email.com", password: "password")
 run_a = Workout.create(name: "Workout 7", duration_mins: 90, user_id: 3, share_status: true)
 user2.workouts.create(name: "Workout 5", duration_mins: 45, share_status: true, created_at: 25.hours.ago)
 user2.workouts.create(name: "Workout 3", duration_mins: 30, share_status: true, created_at: 50.hours.ago)
@@ -29,7 +29,7 @@ user2.workouts.create(name: "Workout 4", duration_mins: 30, share_status: false,
 user2.workouts.create(name: "Workout 2", duration_mins: 15, share_status: false, created_at: 70.hours.ago)
 
 
-user3 = User.create(first_name: "Leia", last_name: "Organa", email: "organa@email.com", password: "password")
+user3 = User.create(first_name: "Han", last_name: "Solo", email: "smuggler@email.com", password: "password")
 bench_a = Workout.create(name: "Workout 7", duration_mins: 90, user_id: 4, share_status: true)
 user3.workouts.create(name: "Workout 5", duration_mins: 45, share_status: true, created_at: 25.hours.ago)
 user3.workouts.create(name: "Workout 3", duration_mins: 30, share_status: true, created_at: 50.hours.ago)
