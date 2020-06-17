@@ -4,22 +4,17 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <% if @workout.user == current_user %>
-      <div class="col-sm-2">
+  <% if @workout.user == current_user %>
+    <div class="button">
       <%= link_to "Edit Workout", edit_user_workout_path(current_user), class: "btn btn-secondary" %>
-      </div>
-      <div class="col-sm">
-      <%= form_tag(user_workout_path(@workout.user, @workout), method: :delete) do %>
-        <button class="btn btn-danger" type="submit">Delete Workout</button>
-      <% end %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+
+    <%= link_to "Delete Workout", user_workout_path(@workout.user, @workout), method: :delete, class: "button btn btn-danger" %>
+  <% end %>
 </div>
 
 <div class='container'>
-  <table class="table mt-3">
+  <table class="table mt-3 table-bordered">
     <thead class="thead-dark">
       <tr>
         <th>Exercise</th>
@@ -29,7 +24,7 @@
         <th>Rating</th>
         <th>Notes</th>
         <% if @workout.user == current_user %>
-          <th><%= link_to "Add Exercise Entry", new_workout_exercise_entry_path(@workout), class: "btn btn-primary" %></th>
+          <th><%= link_to "Add Exercise", new_workout_exercise_entry_path(@workout), class: "btn btn-primary" %></th>
         <% end %>
       </tr>
     </thead>
@@ -44,16 +39,9 @@
         <td><%= exercise_entry.notes %></td>
         <% if @workout.user == current_user %>
           <td>
-            <div class="row">
-              <div class="col-sm-4">
-                <%= link_to "Edit", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), class: "btn btn-secondary" %>
-              </div>
-              <div class="row-sm-4">
-                <%= form_tag(workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete) do %>
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                <% end %>
-              </div>
-            </div>
+              <%= link_to "Edit", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), class: "button btn btn-secondary btn-sm" %>
+                
+              <%= link_to "Delete", workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete, class: "button btn btn-danger btn-sm" %>
           </td>
         <% end %>
       </tr>

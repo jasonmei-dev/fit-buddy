@@ -1,14 +1,14 @@
 <div class="container">
   <% if @user == current_user %>
-    <h1>Hi, <%= @user.first_name %>!</h1>
+    <h2>Hi, <%= @user.first_name %>!</h2>
   <% end %>
 </div>
 
 <div class="container">
-  <h4>User Info:</h4>
+  <h4>User Information:</h4>
   <p>
-    Name: <%= @user.full_name %><br>
-    Email: <%= @user.email %>
+    <strong>Name:</strong> <%= @user.full_name %><br>
+    <strong>Email:</strong> <%= @user.email %>
   </p>
 </div>
 
@@ -23,6 +23,7 @@
       <% end %>
       </ul>
     </div>
+
     <div class="col">
       <% if @user == current_user %>
       <h4>Private Workouts</h4>

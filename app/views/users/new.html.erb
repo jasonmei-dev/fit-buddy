@@ -1,42 +1,44 @@
-<h1>New User</h1>
+<div class='container'>
+  <% if @user.errors.any? %>
+    <h2><%= pluralize(@user.errors.count, "error") %> found:</h2>
 
-<% if @user.errors.any? %>
-  <h2><%= pluralize(@user.errors.count, "error") %> found:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :first_name, "First Name" %>
-    <%= f.text_field :first_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :last_name, "Last Name" %>
-    <%= f.text_field :last_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %>
-  <div>
-
-  <br>
+  <h1>New User</h1>
   
-  <div class="form-group">
-  <%= f.submit "Sign Up", class: "btn btn-success" %>
-  </div>
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :first_name, "First Name" %>
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
 
-  <%= link_to('Sign in with Facebook', '/auth/facebook', method: :post) %><br>
-  <%= link_to('Sign in with Google', '/auth/google_oauth2', method: :post) %>
-<% end %>
+    <div class="form-group">
+      <%= f.label :last_name, "Last Name" %>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    <div>
+
+    <br>
+    
+    <div class="form-group">
+    <%= f.submit "Sign Up", class: "btn btn-success" %>
+    </div>
+
+    <%= link_to('Sign in with Facebook', '/auth/facebook', method: :post) %><br>
+    <%= link_to('Sign in with Google', '/auth/google_oauth2', method: :post) %>
+  <% end %>
+</div>
