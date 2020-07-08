@@ -16,4 +16,4 @@ Finally, initiate a server by typing `$ rails server` in your terminal and navig
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jmei403/fit-buddy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jasonmei-dev/fit-buddy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
