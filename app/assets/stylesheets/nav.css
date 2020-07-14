@@ -1,0 +1,32 @@
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--dark-color);
+  color: var(--light-color);
+  position: sticky;
+  top: 0;
+  padding: 10px 40px;
+  z-index: 10;
+  width: 100%;
+}
+
+#navbar .logo {
+  font-size: 1.3rem;
+}
+
+#navbar a {
+  color: var(--light-color);
+}
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar ul li {
+  padding: 1rem;
+}
+
+#navbar a:hover {
+  opacity: 0.8;
+}

@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+:root {
+  --dark-color: #050505;
+  --light-color: #fff;
+  --important-color: #faff00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: url("background2.jpg") no-repeat center center / cover; */
+  font-family: Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  border: var(--light-color) 1px solid;
+  background: var(--dark-color);
+  color: var(--light-color);
+  border-radius: 25px;
+  padding: 13px 20px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
