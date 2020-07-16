@@ -1,11 +1,11 @@
 #home {
-  position: relative;
+  /* position: relative; */
 }
 
 #home .showcase {
   background: url("background2.jpg") no-repeat center center / cover;
-  height: 650px;
-  /* height: 100vh; */
+  /* height: 630px; */
+  height: 100vh;
 }
 
 #home .showcase .showcase-content {

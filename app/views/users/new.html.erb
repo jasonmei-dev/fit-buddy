@@ -8,37 +8,44 @@
       <% end %>
     </ul>
   <% end %>
-
-  <h1>New User</h1>
-  
-  <%= form_for @user do |f| %>
-    <div class="form-group">
-      <%= f.label :first_name, "First Name" %>
-      <%= f.text_field :first_name, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :last_name, "Last Name" %>
-      <%= f.text_field :last_name, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
-    <div>
-
-    <br>
-    
-    <div class="form-group">
-    <%= f.submit "Sign Up", class: "btn btn-success" %>
-    </div>
-
-    <%= link_to('Sign in with Facebook', '/auth/facebook', method: :post) %><br>
-    <%= link_to('Sign in with Google', '/auth/google_oauth2', method: :post) %>
-  <% end %>
 </div>
+
+<section id="signup-form">
+  <div class="signup-container">
+    <div class="signup-content">
+      <%= form_for(@user) do |f| %>
+        <div class="form-group">
+          <%= f.label :first_name, "First Name" %>
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name, "Last Name" %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.submit "SIGN UP", class: "btn signup-btn" %>
+        </div>
+      <% end %>
+
+      <ul>
+        <li class="signup-link"><%= link_to('Sign Up with Facebook', '/auth/facebook', method: :post) %></li>
+        <li class="signup-link"><%= link_to('Sign Up with Google', '/auth/google_oauth2', method: :post) %></li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+  
+
