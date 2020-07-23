@@ -1,10 +1,62 @@
 // Place all the styles related to the Workouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.button {
-  display: inline-block;
+
+#workout-form {
+  background: url("background-2.png") no-repeat center center / cover;
+  height: 630px;
 }
 
-th {
-  text-align: center;
+#workout-form .form-container {
+  color: var(--dark-color);
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+}
+
+#workout-form .form-container .form-content {
+  width: 50%;
+  padding-top: 20%;
+}
+
+#workout-form h1 {
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+#workout-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#workout-form label.checkbox {
+  display: inline;
+}
+
+#workout-form .form-control {
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+  border: var(--dark-color) 2px solid;
+}
+
+#workout-form .workout-btn {
+  // width: 100px;
+  padding: 10px 20px;
+  margin: 20px 0;
+  // border: var(--dark-color) 2px solid;
+  // background: transparent;
+  // color: var(--dark-color);
+  text-transform: uppercase;
+}
+
+// #workout-form .workout-btn:hover {
+//   background: var(--dark-color);
+//   color: var(--light-color);
+// }
+
+#workout-form .form-group {
+  margin-bottom: 20px;
 }

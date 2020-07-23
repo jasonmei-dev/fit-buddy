@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-<%= form_for workout do |f| %>
+<%= form_for(workout) do |f| %>
   <div class="form-group">
     <%= f.hidden_field :user_id %>
     <%= f.label :name, "Name" %>
@@ -23,13 +23,12 @@
   </div>
 
   <div class="form-group">
-    <div class="form-check">
-      <%= f.check_box :share_status, class: "form-check-input" %>
-      <%= f.label :share_status, "Share Workout", class: "form-check-label" %>
-    </div>
+    <%= f.check_box :share_status %>
+    <%= f.label :share_status, "Share Workout", class: "checkbox"%>
   </div>
 
   <div class="form-group">
-    <%= f.submit class: "btn btn-success" %>
+    <%= f.submit class: "btn workout-btn" %>
   </div>
 <% end %>
+
