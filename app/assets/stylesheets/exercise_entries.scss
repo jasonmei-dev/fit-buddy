@@ -1,0 +1,100 @@
+#entry-form {
+  background: url("background-2.png") no-repeat center center / cover;
+  height: 630px;
+}
+
+#entry-form .form-container {
+  padding: 20px 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#entry-form .form-container .form-content {
+  padding-top: 30px;
+}
+
+#entry-form h1 {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+#entry-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#entry-form .form-control {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  border: var(--dark-color) 1px solid;
+  font-family: Helvetica, sans-serif;
+}
+
+#entry-form .grid-1 p {
+  margin-bottom: 20px;
+}
+
+#entry-form .grid-1 .dropdown {
+  display: inline;
+}
+
+#entry-form .grid-1 select {
+  border: var(--dark-color) 1px solid;
+  border-radius: 3px;
+}
+
+#entry-form .form-group {
+  margin-bottom: 20px;
+}
+
+#entry-form .entry-btn {
+  padding: 10px 20px;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.grid-1 {
+  display: grid;
+  grid-template-areas: "old-exercise content new-exercise";
+  grid-gap: 1rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-areas: "weight sets reps rating";
+  grid-gap: 1rem;
+}
+
+.old-exercise {
+  grid-area: old-exercise;
+}
+
+.content {
+  grid-area: content;
+}
+
+.new-exercise {
+  grid-area: new-exercise;
+}
+
+.weight {
+  grid-area: weight;
+}
+
+.sets {
+  grid-area: sets;
+}
+
+.reps {
+  grid-area: reps;
+}
+
+.rating {
+  grid-area: rating;
+}
+
+.notes {
+  grid-area: notes;
+}
