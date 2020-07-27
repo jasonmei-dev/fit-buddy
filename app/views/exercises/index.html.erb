@@ -1,24 +1,23 @@
-<div class="container">
-  <h1>Exercise Index</h1>
-</div>
+<section id="exercise-index">
+  <div class="index-container">
+    <div class="index-content">
+      <h1>Exercise Index</h1>
 
-<div class="container">
-  <%= form_tag('/exercises', method: 'get') do %>
-    <%= select_tag 'category', options_for_select(['Chest', 'Shoulders', 'Arms', 'Back', 'Legs', 'Abs', 'Cardio']), include_blank: "All Categories" %>
-    <%= submit_tag "Filter" %>
-  <% end %>
-</div>
+      <%= form_tag('/exercises', method: 'get') do %>
+        <%= select_tag 'category', options_for_select(['Chest', 'Shoulders', 'Arms', 'Back', 'Legs', 'Abs', 'Cardio']), include_blank: "All Categories", class: "dropdown" %>
+        <%= submit_tag "Filter", class: "btn filter" %>
+      <% end %>
 
-<div class="container">
-  <ol class="list-group mt-3">
-  <% @exercises.each do |exercise| %>
-    <li class="list-group-item list-group-item-action"><%= link_to exercise.name, exercise_path(exercise) %></li>
-  <% end %>
-  </ol>
-</div>
+      <ul class="list-group mt-3">
+        <% @exercises.each do |exercise| %>
+          <li class="list-group-item list-group-item-action"><%= link_to exercise.name, exercise_path(exercise) %></li>
+        <% end %>
+      </ul>
 
-<div class="container mt-3">
-  <% if current_user.id == 1 %>
-    <%= link_to "Create New Exercise", new_exercise_path, class: "btn btn-primary" %>
-  <% end %>
-</div>
+      <% if current_user.id == 1 %>
+        <%= link_to "Create New Exercise", new_exercise_path, class: "btn" %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
