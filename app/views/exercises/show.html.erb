@@ -1,13 +1,18 @@
-<div class="container">
-  <h1><%= @exercise.name %></h1>
-  <h3>Category: <%= @exercise.category %></h3>
-  <h3>Average User Rating: <%= @exercise.avg_rating %></h3>
-  <h3>Description:</h3>
-  <p><%= @exercise.description %></p>
+<section id="exercise-show">
+  <div class="exercise-container">
+    <div class="exercise-details">
+      <h1><%= @exercise.name %></h1>
+      <div class="sub-header">
+        <h2>Category: <%= @exercise.category %></h2>
+        <h2>Average User Rating: <%= @exercise.avg_rating %></h2>
+      </div>
+      <h3>Description:</h3>
+      <p><%= @exercise.description %></p>
 
-  <% if current_user.id == 1 %>
-    <%= link_to "Edit Exercise", edit_exercise_path(@exercise), class: "btn btn-secondary" %>
-  <% end %>
+      <% if current_user.id == 1 %>
+        <%= link_to "Edit Exercise", edit_exercise_path(@exercise), class: "btn btn-secondary" %>
+      <% end %>
 
-  <%= link_to "Exercise Index", exercises_path, class: "btn btn-primary" %>
-</div>
+      <%= link_to "Exercise Index", exercises_path, class: "btn show-btn" %>
+  </div>
+</section>
