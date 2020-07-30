@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Workout Form
 #workout-form {
   background: url("background-2.png") no-repeat center center / cover;
   height: 630px;
@@ -43,20 +44,107 @@
 }
 
 #workout-form .workout-btn {
-  // width: 100px;
   padding: 10px 20px;
   margin: 20px 0;
-  // border: var(--dark-color) 2px solid;
-  // background: transparent;
-  // color: var(--dark-color);
   text-transform: uppercase;
 }
 
-// #workout-form .workout-btn:hover {
-//   background: var(--dark-color);
-//   color: var(--light-color);
-// }
-
 #workout-form .form-group {
   margin-bottom: 20px;
+}
+
+// Workout Page
+#workout-page {
+  background: url("background-2.png") no-repeat center center / cover;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
+#workout-page .workout-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+#workout-page .workout-container .flex-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#workout-page .workout-container .flex-container .flex-item {
+  margin-right: 30px;
+}
+
+#workout-page .workout-container .btn {
+  background: var(--light-color);
+  color: var(--dark-color);
+  border: var(--dark-color) 1px solid;
+  border-radius: 15px;
+}
+
+#workout-page .workout-container .flex-container .btn {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 120px;
+  margin-right: 10px;
+}
+
+#workout-page .workout-container .flex-container .btn:hover,
+#workout-page .workout-container table .btn:hover {
+  background: var(--dark-color);
+  color: var(--light-color);
+  opacity: 1;
+}
+
+#workout-page .workout-container .flex-container h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#workout-page .workout-container h3 {
+  font-weight: lighter;
+  margin-bottom: 50px;
+}
+
+#workout-page .workout-container table {
+  width: 1000px;
+  border-collapse: collapse;
+}
+
+#workout-page .workout-container table th,
+#workout-page .workout-container table td {
+  border-bottom: 5px solid var(--light-color);
+  text-align: left;
+}
+
+#workout-page .workout-container table th {
+  background: #cdd1d6;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  font-size: 14px;
+}
+
+#workout-page .workout-container table td {
+  background: #eff1f3;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+#workout-page .workout-container table .exercise-btn {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-size: 8px;
+  width: 120px;
+}
+
+#workout-page .workout-container table .entry-btn {
+  padding: 8px 0;
+  text-transform: uppercase;
+  font-size: 8px;
+  width: 60px;
 }

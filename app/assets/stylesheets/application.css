@@ -39,10 +39,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-  padding: 20px 30px;
-}
-
 .btn {
   display: inline-block;
   border: var(--light-color) 1px solid;

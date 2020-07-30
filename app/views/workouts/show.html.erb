@@ -1,51 +1,54 @@
-<div class="container">
-  <h1><%= @workout.name %></h1>
-  <h3>Duration: <%= @workout.duration_mins %> minutes</h3>
-</div>
+<section id="workout-page">
+  <div class="workout-container">
+    <div class="flex-container">
+      <div class="flex-item">
+        <h1><%= @workout.name %></h1>
+      </div>
 
-<div class="container">
-  <% if @workout.user == current_user %>
-    <div class="button">
-      <%= link_to "Edit Workout", edit_user_workout_path(current_user), class: "btn btn-secondary" %>
+      <div class="flex-item">
+        <% if @workout.user == current_user %>
+          <%= link_to "Edit Workout", edit_user_workout_path(current_user), class: "btn edit-btn" %>
+
+          <%= link_to "Delete Workout", user_workout_path(@workout.user, @workout), method: :delete, class: "btn delete-btn" %>
+        <% end %>
+      </div>
     </div>
+    
+    <h3>Duration: <%= @workout.duration_mins %> minutes</h3>
 
-    <%= link_to "Delete Workout", user_workout_path(@workout.user, @workout), method: :delete, class: "button btn btn-danger" %>
-  <% end %>
-</div>
-
-<div class='container'>
-  <table class="table mt-3 table-bordered">
-    <thead class="thead-dark">
-      <tr>
-        <th>Exercise</th>
-        <th>Sets</th>
-        <th>Reps</th>
-        <th>Weight(lbs)</th>
-        <th>Rating</th>
-        <th>Notes</th>
-        <% if @workout.user == current_user %>
-          <th><%= link_to "Add Exercise", new_workout_exercise_entry_path(@workout), class: "btn btn-primary" %></th>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight (lbs)</th>
+          <th>Rating</th>
+          <th>Notes</th>
+          <% if @workout.user == current_user %>
+            <th><%= link_to "Add Exercise", new_workout_exercise_entry_path(@workout), class: "btn exercise-btn" %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @workout.exercise_entries.each do |exercise_entry| %>
+        <tr>
+          <td><%= exercise_entry.exercise.name %></td>
+          <td><%= exercise_entry.sets %></td>
+          <td><%= exercise_entry.reps %></td>
+          <td><%= exercise_entry.weight_lbs %></td>
+          <td><%= exercise_entry.exercise_rating %></td>
+          <td><%= exercise_entry.notes %></td>
+          <% if @workout.user == current_user %>
+            <td>
+                <%= link_to "Edit", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), class: "btn entry-btn" %>
+                  
+                <%= link_to "Delete", workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete, class: "btn entry-btn" %>
+            </td>
+          <% end %>
+        </tr>
         <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @workout.exercise_entries.each do |exercise_entry| %>
-      <tr>
-        <td><%= exercise_entry.exercise.name %></td>
-        <td><%= exercise_entry.sets %></td>
-        <td><%= exercise_entry.reps %></td>
-        <td><%= exercise_entry.weight_lbs %></td>
-        <td><%= exercise_entry.exercise_rating %></td>
-        <td><%= exercise_entry.notes %></td>
-        <% if @workout.user == current_user %>
-          <td>
-              <%= link_to "Edit", edit_workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), class: "button btn btn-secondary btn-sm" %>
-                
-              <%= link_to "Delete", workout_exercise_entry_path(id: exercise_entry.id, workout_id: exercise_entry.workout_id), method: :delete, class: "button btn btn-danger btn-sm" %>
-          </td>
-        <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+</section>
