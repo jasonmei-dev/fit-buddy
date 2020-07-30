@@ -1,39 +1,37 @@
-<div class="container">
-  <% if @user == current_user %>
-    <h2>Hi, <%= @user.first_name %>!</h2>
-  <% end %>
-</div>
-
-<div class="container">
-  <h4>User Information:</h4>
-  <p>
-    <strong>Name:</strong> <%= @user.full_name %><br>
-    <strong>Email:</strong> <%= @user.email %>
-  </p>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h4>Shared Workouts</h4>
-      <ul class="list-group">
-      <% @user.workouts.where(share_status: true).order(created_at: :desc).each do |workout| %>
-        <li class="list-group-item list-group-item-action"><%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} -
-         #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
-      <% end %>
-      </ul>
-    </div>
-
-    <div class="col">
+<section id="profile">
+  <div class="profile-container">
+    <div class="user-info">
       <% if @user == current_user %>
-      <h4>Private Workouts</h4>
-      <ul class="list-group">
-        <% @user.workouts.where(share_status: false).order(created_at: :desc).each do |workout| %>
-          <li class="list-group-item list-group-item-action"><%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} -
-          #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
-        <% end %>
+        <h1>Hi, <%= @user.first_name %>.</h1>
+      <% else %>
+        <h1><%= @user.first_name %>'s Profile</h1>
       <% end %>
+
+      <ul>
+        <li>Name: <%= @user.full_name %></li>
+        <li>Email: <%= @user.email %></li>
       </ul>
     </div>
+
+    <div class="flex-container">
+      <div class="flex-item">
+        <h3>Shared Workouts</h3>
+        <ul>
+        <% @user.workouts.where(share_status: true).order(created_at: :desc).each do |workout| %>
+          <li><%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} - #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
+        <% end %>
+        </ul>
+      </div>
+
+      <div class="flex-item">
+        <% if @user == current_user %>
+        <h3>Private Workouts</h3>
+        <ul>
+          <% @user.workouts.where(share_status: false).order(created_at: :desc).each do |workout| %>
+            <li><%= link_to "#{workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p")} - #{workout.name}", user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
+          <% end %>
+        <% end %>
+        </ul>
+      </div>
   </div>
-</div>
+</section>
