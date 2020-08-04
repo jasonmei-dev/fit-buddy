@@ -26,9 +26,8 @@
 }
 
 body {
-  /* background: url("background2.jpg") no-repeat center center / cover; */
   font-family: Helvetica, sans-serif;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 ul {
@@ -53,4 +52,33 @@ a {
 .btn:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+/* Flash Messages */
+.flash-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.flash-container p {
+  padding: 23px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.flash-container .error {
+  background: rgba(192, 50, 33, 0.8);
+}
+
+.flash-container .success {
+  background: rgba(74, 124, 89, 0.8);
+}
+
+.form-group ul {
+  list-style-type: circle;
+  list-style-position: inside;
 }

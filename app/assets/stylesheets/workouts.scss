@@ -5,7 +5,7 @@
 // Workout Form
 #workout-form {
   background: url("background-2.png") no-repeat center center / cover;
-  height: 630px;
+  height: 90vh;
 }
 
 #workout-form .form-container {
@@ -19,7 +19,7 @@
 
 #workout-form .form-container .form-content {
   width: 50%;
-  padding-top: 20%;
+  padding-top: 10%;
 }
 
 #workout-form h1 {
@@ -56,8 +56,8 @@
 // Workout Page
 #workout-page {
   background: url("background-2.png") no-repeat center center / cover;
-  height: 100vh;
-  overflow: auto;
+  height: 90vh;
+  // overflow: auto;
   position: relative;
 }
 

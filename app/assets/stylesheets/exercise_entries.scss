@@ -1,6 +1,8 @@
 #entry-form {
   background: url("background-2.png") no-repeat center center / cover;
-  height: 630px;
+  // height: 630px;
+  height: 90vh;
+  overflow: auto;
 }
 
 #entry-form .form-container {

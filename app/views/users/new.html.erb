@@ -1,19 +1,20 @@
-<div class='container'>
-  <% if @user.errors.any? %>
-    <h2><%= pluralize(@user.errors.count, "error") %> found:</h2>
-
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
 
 <section id="signup-form">
   <div class="signup-container">
     <div class="signup-content">
       <%= form_for(@user) do |f| %>
+        <div class='form-group'>
+          <% if @user.errors.any? %>
+            <h2><%= pluralize(@user.errors.count, "error") %> found:</h2>
+
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+        
         <div class="form-group">
           <%= f.label :first_name, "First Name" %>
           <%= f.text_field :first_name, class: "form-control" %>

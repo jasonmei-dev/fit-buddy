@@ -5,7 +5,7 @@
 // Index Page
 #exercise-index {
   background: url("background-1.jpg") no-repeat center center / cover;
-  height: 100vh;
+  height: 90vh;
   overflow: auto;
 }
 
@@ -16,11 +16,9 @@
   display: flex;
   justify-content: center;
   // align-items: center;
-  // border: 1px solid white;
 }
 
 #exercise-index .index-container .index-content {
-  // border: 1px solid white;
   width: 50%;
   margin-top: 30px;
 }
@@ -61,8 +59,8 @@
 // Exercise Show Page
 #exercise-show {
   background: url("background-1.jpg") no-repeat center center / cover;
-  height: 100vh;
-  overflow: auto;
+  height: 90vh;
+  // overflow: auto;
 }
 
 #exercise-show .exercise-container {
@@ -72,11 +70,9 @@
   display: flex;
   justify-content: center;
   // align-items: center;
-  // border: 1px solid white;
 }
 
 #exercise-show .exercise-container .exercise-details {
-  // border: 1px solid white;
   width: 60%;
   margin-top: 10%;
   margin-left: 15%;
@@ -97,6 +93,7 @@
 #exercise-show .exercise-container .exercise-details .sub-header {
   font-style: italic;
   margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
 #exercise-show .exercise-container .exercise-details .sub-header h2 {

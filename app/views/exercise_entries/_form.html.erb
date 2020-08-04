@@ -1,16 +1,19 @@
-<% if @exercise_entry.errors.any? %>
-  <h3>
-    <%= pluralize(@exercise_entry.errors.count, "error") %> found:
-  </h3>
-
-  <ul>
-    <% @exercise_entry.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
 
 <%= form_for exercise_entry do |f| %>
+    <% if @exercise_entry.errors.any? %>
+      <div class="form-group">
+        <h3>
+          <%= pluralize(@exercise_entry.errors.count, "error") %> found:
+        </h3>
+
+        <ul>
+          <% @exercise_entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
     <div class="grid-1">
       <div class="old-exercise">
         <%= f.hidden_field :workout_id %>
