@@ -7,16 +7,16 @@ class SessionsController < ApplicationController
     if auth_hash #login via OAuth
       @user = User.find_or_create_by_omniauth(auth_hash)
       session[:user_id] = @user.id
-      flash[:success] = "Login successful!"
+      flash[:success] = "You have signed in!"
       redirect_to root_path
     else #normal login
       @user = User.find_by(email: params[:user][:email])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        flash[:success] = "Login successful!"
+        flash[:success] = "You have signed in!"
         redirect_to root_path
       else
-        flash[:danger] = "Credentials were invalid. Please try again or Sign Up."
+        flash[:error] = "Invalid credentials!"
         render :new
       end
     end

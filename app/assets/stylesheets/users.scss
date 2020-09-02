@@ -1,3 +1,165 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Sign Up Form
+#signup-form {
+  background: url("background-1.jpg") no-repeat center center / cover;
+  height: 90vh;
+  overflow: auto;
+}
+
+#signup-form .signup-container {
+  color: var(--light-color);
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#signup-form .signup-container .signup-content {
+  width: 50%;
+  padding-top: 13%;
+}
+
+#signup-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#signup-form .form-control {
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#signup-form .signup-btn {
+  width: 100px;
+  padding: 10px 20px;
+  margin: 20px 0;
+}
+
+#signup-form .signup-container .form-group {
+  margin-bottom: 20px;
+}
+
+#signup-form .signup-link {
+  margin-bottom: 15px;
+}
+
+#signup-form a {
+  color: var(--light-color);
+  font-size: 0.8rem;
+}
+
+#signup-form a:hover {
+  opacity: 0.8;
+}
+
+// User Index
+#user-index {
+  background: url("background-1.jpg") no-repeat center center / cover;
+  height: 90vh;
+}
+
+#user-index .index-container {
+  color: var(--light-color);
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#user-index .index-container .index-content {
+  width: 50%;
+  margin-top: 30px;
+}
+
+#user-index .index-container .index-content h1 {
+  font-weight: normal;
+  margin-bottom: 30px;
+  color: var(--important-color);
+}
+
+#user-index .index-container .index-content ul li {
+  border-bottom: solid 1px var(--light-color);
+  padding: 20px 30px;
+}
+
+#user-index .index-container .index-content ul li a {
+  color: var(--light-color);
+}
+
+#user-index .index-container .index-content ul li a:hover {
+  opacity: 0.8;
+}
+
+// Profile Page
+#profile {
+  background: url("background-2.png") no-repeat center center / cover;
+  height: 90vh;
+  position: relative;
+}
+
+#profile .profile-container {
+  letter-spacing: 1px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+#profile .profile-container .user-info h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+#profile .profile-container .user-info ul {
+  margin-bottom: 50px;
+}
+
+#profile .profile-container .user-info ul li {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+#profile .profile-container .flex-container {
+  display: flex;
+  align-items: center;
+}
+
+#profile .flex-container .flex-item {
+  width: 450px;
+}
+
+#profile .flex-container .flex-item:first-child {
+  margin-right: 30px;
+}
+
+#profile .flex-container .flex-item h3 {
+  background: #cdd1d6;
+  padding: 10px 20px;
+}
+
+#profile .flex-container .flex-item ul li {
+  background: #eff1f3;
+  margin: 8px 0;
+  padding: 5px 20px;
+}
+
+#profile .flex-container .flex-item ul li a {
+  color: var(--dark-color);
+  font-weight: lighter;
+}
+
+#profile .flex-container .flex-item ul li:hover {
+  background: #cdd1d6;
+  color: var(--light-color);
+}
+
+#profile .flex-container .flex-item ul li a:hover {
+  color: var(--light-color);
+}

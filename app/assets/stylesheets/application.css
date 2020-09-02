@@ -13,3 +13,72 @@
  *= require_tree .
  *= require_self
  */
+:root {
+  --dark-color: #050505;
+  --light-color: #fff;
+  --important-color: #faff00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  overflow: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  border: var(--light-color) 1px solid;
+  background: var(--dark-color);
+  color: var(--light-color);
+  border-radius: 25px;
+  padding: 13px 20px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Flash Messages */
+.flash-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.flash-container p {
+  padding: 23px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.flash-container .error {
+  background: rgba(192, 50, 33, 0.8);
+}
+
+.flash-container .success {
+  background: rgba(74, 124, 89, 0.8);
+}
+
+.form-group ul {
+  list-style-type: circle;
+  list-style-position: inside;
+}

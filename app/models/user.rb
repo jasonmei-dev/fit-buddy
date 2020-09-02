@@ -5,21 +5,12 @@ class User < ApplicationRecord
   has_many :exercises, through: :workouts
   has_many :exercise_entries, through: :workouts
 
-  # validates :username, presence: true
-  # validates :username, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :password, length: { minimum: 6 }
-
-  # def self.find_or_create_by_omniauth(auth_hash)
-  #   self.where(email: auth_hash[:info][:email]).first_or_create do |user|
-  #     user.username = auth_hash[:extra][:raw_info][:login]
-  #     user.password = SecureRandom.hex
-  #   end
-  # end
   
   def self.find_or_create_by_omniauth(auth_hash)
     self.where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create do |user|

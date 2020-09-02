@@ -1,0 +1,38 @@
+#home .showcase {
+  background: url("background-1.jpg") no-repeat center center / cover;
+  height: 90vh;
+}
+
+#home .showcase .showcase-content {
+  color: var(--light-color);
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding: 160px 0 160px 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+#home .showcase .showcase-content h1 {
+  font-size: 3rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+#home h1 {
+  font-weight: normal;
+}
+
+#home .header {
+  margin-top: 20%;
+}
+
+#home .showcase .showcase-content ul li {
+  margin-bottom: 22px;
+}
+
+.home-btn {
+  width: 140px;
+}

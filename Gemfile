@@ -11,7 +11,7 @@ gem 'dotenv-rails'
 gem 'pry'
 
 # bootstrap
-gem "bootstrap", '~> 4.3.1'
+# gem "bootstrap", '~> 4.3.1'
 gem 'jquery-rails'
 gem 'sprockets-rails'
 
