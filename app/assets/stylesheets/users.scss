@@ -15,7 +15,6 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  // align-items: center;
 }
 
 #signup-form .signup-container .signup-content {
@@ -61,7 +60,6 @@
 #user-index {
   background: url("background-1.jpg") no-repeat center center / cover;
   height: 90vh;
-  // overflow: auto;
 }
 
 #user-index .index-container {
@@ -70,7 +68,6 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  // align-items: center;
 }
 
 #user-index .index-container .index-content {
@@ -101,7 +98,6 @@
 #profile {
   background: url("background-2.png") no-repeat center center / cover;
   height: 90vh;
-  // overflow: auto;
   position: relative;
 }
 
@@ -117,7 +113,6 @@
   font-size: 2.6rem;
   font-weight: normal;
   margin-bottom: 1rem;
-  // letter-spacing: 1px;
 }
 
 #profile .profile-container .user-info ul {
@@ -129,7 +124,6 @@
   line-height: 1.5;
   font-style: italic;
   font-weight: lighter;
-  // letter-spacing: 1px;
 }
 
 #profile .profile-container .flex-container {
@@ -148,7 +142,6 @@
 #profile .flex-container .flex-item h3 {
   background: #cdd1d6;
   padding: 10px 20px;
-  // font-weight: 500;
 }
 
 #profile .flex-container .flex-item ul li {
